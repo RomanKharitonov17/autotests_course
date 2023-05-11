@@ -4,6 +4,9 @@
 
 def move_zeros(lst):
     # Здесь нужно написать код
+    for i in range(-1, -len(lst), -1):
+        if lst[i] == 0:
+            lst.append(lst.pop(i))
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
