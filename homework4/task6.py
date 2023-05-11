@@ -5,6 +5,8 @@
 
 def create_phone_number(num_tuple):
     # Здесь нужно написать код
+    string = str(num_tuple).replace('(', '').replace(', ', '').replace(')', '')
+    str_phone = f'({string[:3]}) {string[3:6]}-{string[6:]}'
     return str_phone
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
