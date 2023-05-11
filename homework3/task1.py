@@ -3,10 +3,9 @@
 
 def modification(lst):
     # Здесь пишем код
-    first_elem = lst.pop(0)
-    last_elem = lst.pop(-1)
-    lst.append(first_elem)
-    lst.insert(0, last_elem)
+    first_elem = lst[0]
+    lst[0] = lst[-1]
+    lst[-1] = first_elem
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
