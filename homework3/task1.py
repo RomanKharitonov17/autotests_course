@@ -3,9 +3,7 @@
 
 def modification(lst):
     # Здесь пишем код
-    first_elem = lst[0]
-    lst[0] = lst[-1]
-    lst[-1] = first_elem
+    lst[0], lst[-1] = lst[-1], lst[0]
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
