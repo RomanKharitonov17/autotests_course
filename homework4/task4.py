@@ -9,6 +9,15 @@
 
 def multiplication_chain(num):
     # Здесь нужно написать код
+    pr = 1
+    count_multy = 0
+    while num >= 10:
+        while num > 0:
+            pr *= num % 10
+            num = num // 10
+        num = pr
+        pr = 1
+        count_multy += 1
     return count_multy
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

@@ -15,6 +15,13 @@
 
 def josephus_task(num_people, kill_num):
     # Здесь нужно написать код
+    i: int
+    lst = [i for i in range(1, num_people + 1)]
+    while len(lst) > 1:
+        for j in range(0, kill_num-1):
+            lst.append(lst[j])
+        del lst[:kill_num]
+    survivor = lst[0]
     return survivor
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
