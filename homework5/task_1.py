@@ -11,8 +11,6 @@ def letter_stat(our_str):
     letters_dict = {item: 0 for item in our_str}
     for i in our_str:
         letters_dict[i] += 1
-    print(letters_dict)
-    return letters_dict
     return letters_dict
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
