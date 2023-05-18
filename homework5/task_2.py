@@ -8,6 +8,11 @@
 
 def repeats(our_str):
     # Здесь нужно написать код
+    new_str = ""
+    num_dict = {}
+    for i in our_str:
+        num_dict[i] = num_dict.get(i, 0) + 1
+        new_str += f"{i}_{num_dict[i]}"
     return new_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
