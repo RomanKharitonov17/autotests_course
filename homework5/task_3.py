@@ -19,7 +19,7 @@
 
 
 def everything_for_your_cat(data):
-    # Здесь нужно написать код
+    """Отображает данные о животных владельца в одной строке"""
     our_str = ""
     cats_owners = {}
     for i in data:

@@ -7,7 +7,7 @@
 
 
 def letter_stat(our_str):
-    # Здесь нужно написать код
+    """Подсчитывает количество символов в строке"""
     letters_dict = {item: 0 for item in our_str}
     for i in our_str:
         letters_dict[i] += 1
