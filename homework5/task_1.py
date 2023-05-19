@@ -7,7 +7,10 @@
 
 
 def letter_stat(our_str):
-    """Подсчитывает количество символов в строке"""
+    """Подсчитывает количество символов в строке
+       :param: our_str - входящая строка
+       :return: letters_dict - словарь. Ключи - это символы строки. Значения - количество повторений символа в строке.
+    """
     letters_dict = {item: 0 for item in our_str}
     for i in our_str:
         letters_dict[i] += 1
