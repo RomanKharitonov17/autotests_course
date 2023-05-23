@@ -18,8 +18,19 @@
 #
 
 
-def everything_for_your_cat(cats_data):
-    # Здесь нужно написать код
+def everything_for_your_cat(data):
+    """Отображает данные о животных владельца в одной строке.
+       :param: data - список кортежей. Элементами кортежа являются кличка котика, возраст котика, имя покупателя,
+       фамилия покупателя.
+       :return: our_str - многострочный текст, в котором на каждой новой строке содержится владелец и все его питомцы.
+    """
+    our_str = ""
+    cats_owners = {}
+    for i in data:
+        owner = f"{i[-2]} {i[-1]}:"
+        cats_owners[owner] = cats_owners.get(owner, "") + f"{i[0]}, {i[1]}; "
+    for owner, cats in cats_owners.items():
+        our_str += f"{owner} {cats[:-2]}\n"
     return our_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
