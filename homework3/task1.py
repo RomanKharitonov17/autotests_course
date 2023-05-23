@@ -3,10 +3,7 @@
 
 def modification(lst):
     # Здесь пишем код
-    lst.append(lst[0])
-    del lst[0]
-    lst.insert(0, lst[-2])
-    del lst[-2]
+    lst[0], lst[-1] = lst[-1], lst[0]
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
