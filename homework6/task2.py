@@ -5,16 +5,13 @@
 # local_function должна изменить значение переменной msg на значение 2
 
 def global_function():
-    """ Глобальная функция вызывает local_function()
-        :param: msg - число, переменная из объемлющей области видимости для local_function()
-    """
+    """ Глобальная функция вызывает local_function()"""
     msg = 1
 
     def local_function():
         """ Меняет переменную msg
-                :param: msg - переменная из global_function()
                 :return: msg
-            """
+        """
         nonlocal msg
         msg = 2
 

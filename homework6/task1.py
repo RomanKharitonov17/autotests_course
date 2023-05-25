@@ -12,8 +12,6 @@ string = 'Hello'
 
 def global_changes():
     """Изменяет глобальные переменные.
-           :params: number - глобальная переменная, число;
-                    string - глобальная переменная, строка.
            :return: number, string - измененные функцией глобальные переменные.
     """
     global number
