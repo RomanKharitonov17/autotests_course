@@ -22,7 +22,6 @@
 # 1337*32*9 = 385056
 
 # Здесь пишем код
-
 class PersonInfo:
 
     def __init__(self, full_name, age, *division):
