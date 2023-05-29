@@ -22,6 +22,26 @@
 # 1337*32*9 = 385056
 
 # Здесь пишем код
+class PersonInfo:
+
+    def __init__(self, full_name, age, *division):
+        self.full_name = full_name
+        self.age = age
+        self.division = division
+
+    def short_name(self):
+        name = f'{self.full_name.split()[-1]} {self.full_name[0]}.'
+        return name
+
+    def path_deps(self):
+        return ' --> '.join(self.division)
+
+    def new_salary(self):
+        letters = [j.lower() for i in self.division for j in i if j.isalpha()]
+        letter_counts = sorted([(letter, letters.count(letter)) for letter in set(letters)], key=lambda x: -x[1])
+        top_three_letters = ''.join([i[0] for i in letter_counts[:3]])
+        return 1337 * self.age * sum([top_three_letters.count(c) for c in top_three_letters])
+
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
