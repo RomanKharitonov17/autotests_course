@@ -25,7 +25,16 @@
 
 # Здесь пишем код
 class PublicTransport:
-
+    """
+       Класс для представления транспорта.
+       :attributes: brand - марка транспорта.
+                    engine_power - мощность двигателя (protected атрибут).
+                    year - год выпуска.
+                    color - цвет.
+                    max_speed - максимальная скорость.
+       :method: __init__ - устанавливает атрибуты для объекта.
+       :property: info - выводит на печать: марку, цвет, год выпуска, мощность двигателя.
+    """
     def __init__(self, brand, engine_power, year, color, max_speed):
         self.brand = brand
         self._engine_power = engine_power
@@ -39,7 +48,19 @@ class PublicTransport:
 
 
 class Bus(PublicTransport):
-
+    """
+           Класс для представления автобуса. Наследуется от PublicTransport
+           :attributes: brand - марка транспорта.
+                        engine_power - мощность двигателя (protected атрибут).
+                        year - год выпуска.
+                        color - цвет.
+                        max_speed - максимальная скорость.
+                        passengers - пассажиры.
+                        park - номер парка (private атрибут).
+                        fare - стоимость проезда (protected атрибут).
+           :method: __init__ - устанавливает атрибуты для объекта.
+           :property: park - возвращает значение park, если номер в диапазоне от 1000 до 9999
+    """
     def __init__(self, brand, engine_power, year, color, max_speed, passengers, park, fare):
         super().__init__(brand, engine_power, year, color, max_speed)
         self.passengers = passengers
@@ -57,7 +78,19 @@ class Bus(PublicTransport):
 
 
 class Tram(PublicTransport):
-
+    """
+               Класс для представления трамвая. Наследуется от PublicTransport
+               :attributes: brand - марка транспорта.
+                            engine_power - мощность двигателя (protected атрибут).
+                            year - год выпуска.
+                            color - цвет.
+                            max_speed - максимальная скорость.
+                            route - маршрут трамвая (private атрибут)
+                            path - длина маршрута
+                            fare - стоимость проезда
+               :method: __init__ - устанавливает атрибуты для объекта.
+               :property: how_long - вычисляет время за прохождение маршрута.
+        """
     def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
         super().__init__(brand, engine_power, year, color, max_speed)
         self.__route = route
