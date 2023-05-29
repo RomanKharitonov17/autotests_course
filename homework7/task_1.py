@@ -11,6 +11,15 @@
 
 # Здесь пишем код
 class Segment:
+    """
+    Класс для представления отрезка.
+    :attributes: start_point - начальная точка.
+                 end_point - конечная точка.
+    :methods: __init__ - устанавливает атрибуты для объекта
+              length - возвращает длину отрезка
+              x_axis_intersection - возвращает True при пересечении отрезком оси x
+              y_axis_intersection - возвращает True при пересечении отрезком оси y
+    """
     def __init__(self, start_point, end_point):
         self.end_point = start_point
         self.start_point = end_point
