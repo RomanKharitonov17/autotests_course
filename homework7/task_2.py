@@ -22,17 +22,9 @@
 # 1337*32*9 = 385056
 
 # Здесь пишем код
+
 class PersonInfo:
-    """
-    Класс для представления cотрудника.
-    :attributes: full_name - имя и фамилия.
-                 age - возраст.
-                 *division - подразделения от головного до того, где работает сотрудник.
-    :methods: __init__ - устанавливает атрибуты для объекта.
-              short_name - возвращает строку Фамилия И.
-              path_deps - возвращает путь "Головное подразделение --> ... --> Конечное подразделение".
-              new_salary - расчитывает зарплату.
-    """
+
     def __init__(self, full_name, age, *division):
         self.full_name = full_name
         self.age = age
@@ -46,10 +38,19 @@ class PersonInfo:
         return ' --> '.join(self.division)
 
     def new_salary(self):
-        letters = [j.lower() for i in self.division for j in i if j.isalpha()]
-        letter_counts = sorted([(letter, letters.count(letter)) for letter in set(letters)], key=lambda x: -x[1])
-        top_three_letters = ''.join([i[0] for i in letter_counts[:3]])
-        return 1337 * self.age * sum([top_three_letters.count(c) for c in top_three_letters])
+        dep_letters = ''.join(self.division)
+        letter_count = {}
+        for letter in dep_letters:
+            if letter not in letter_count:
+                letter_count[letter] = 1
+            else:
+                letter_count[letter] += 1
+        sorted_letters = sorted(letter_count.items(), key=lambda x: x[1], reverse=True)
+        letter_count_sum = 0
+        for i in range(min(3, len(sorted_letters))):
+            letter_count_sum += sorted_letters[i][1]
+        salary = 1337 * self.age * letter_count_sum
+        return salary
 
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
@@ -75,7 +76,6 @@ data = [first_person.short_name,
         third_person.new_salary,
         fourth_person.new_salary
         ]
-
 
 test_data = ['Шленский А.', 'Валерьев П.', 'Артуров М.', 'Иванов И.',
 
