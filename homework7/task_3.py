@@ -26,14 +26,7 @@
 # Здесь пишем код
 class PublicTransport:
     """
-       Класс для представления транспорта.
-       :attributes: brand - марка транспорта.
-                    engine_power - мощность двигателя (protected атрибут).
-                    year - год выпуска.
-                    color - цвет.
-                    max_speed - максимальная скорость.
-       :method: __init__ - устанавливает атрибуты для объекта.
-       :property: info - выводит на печать: марку, цвет, год выпуска, мощность двигателя.
+        PublicTransport - класс для представления транспорта
     """
     def __init__(self, brand, engine_power, year, color, max_speed):
         self.brand = brand
@@ -44,22 +37,15 @@ class PublicTransport:
 
     @property
     def info(self):
+        """
+        Выводит на печать: марку, цвет, год выпуска, мощность двигателя
+        """
         print(self.brand, self.color, self.year, self._engine_power)
 
 
 class Bus(PublicTransport):
     """
-           Класс для представления автобуса. Наследуется от PublicTransport
-           :attributes: brand - марка транспорта.
-                        engine_power - мощность двигателя (protected атрибут).
-                        year - год выпуска.
-                        color - цвет.
-                        max_speed - максимальная скорость.
-                        passengers - пассажиры.
-                        park - номер парка (private атрибут).
-                        fare - стоимость проезда (protected атрибут).
-           :method: __init__ - устанавливает атрибуты для объекта.
-           :property: park - возвращает значение park, если номер в диапазоне от 1000 до 9999
+        Bus - класс для представления автобуса
     """
     def __init__(self, brand, engine_power, year, color, max_speed, passengers, park, fare):
         super().__init__(brand, engine_power, year, color, max_speed)
@@ -69,6 +55,9 @@ class Bus(PublicTransport):
 
     @property
     def park(self):
+        """
+        Возвращает значение park, если номер в диапазоне от 1000 до 9999
+        """
         return self.__park
 
     @park.setter
@@ -79,18 +68,8 @@ class Bus(PublicTransport):
 
 class Tram(PublicTransport):
     """
-               Класс для представления трамвая. Наследуется от PublicTransport
-               :attributes: brand - марка транспорта.
-                            engine_power - мощность двигателя (protected атрибут).
-                            year - год выпуска.
-                            color - цвет.
-                            max_speed - максимальная скорость.
-                            route - маршрут трамвая (private атрибут)
-                            path - длина маршрута
-                            fare - стоимость проезда
-               :method: __init__ - устанавливает атрибуты для объекта.
-               :property: how_long - вычисляет время за прохождение маршрута.
-        """
+        Tram - класс для представления трамвая           
+    """
     def __init__(self, brand, engine_power, year, color, max_speed, route, path, fare):
         super().__init__(brand, engine_power, year, color, max_speed)
         self.__route = route
@@ -99,6 +78,9 @@ class Tram(PublicTransport):
 
     @property
     def how_long(self):
+        """
+        Вычисляет время за прохождение маршрута
+        """
         how_long = self.max_speed / (4 * self.path)
         return how_long
 
