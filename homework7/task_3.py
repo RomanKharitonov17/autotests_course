@@ -40,7 +40,7 @@ class PublicTransport:
         """
         Выводит на печать: марку, цвет, год выпуска, мощность двигателя
         """
-        print(self.brand, self.color, self.year, self._engine_power)
+        return self.brand, self.color, self.year, self._engine_power
 
 
 class Bus(PublicTransport):
