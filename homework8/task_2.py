@@ -17,6 +17,26 @@ import unittest  # Не удалять
 
 
 # Здесь пишем код
+class Trigon:
+    """
+    Trigon - класс для представления треугольника. В классе при инициализации происходит проверка на корректность
+    переданных данных
+    """
+    def __init__(self, *args):
+        if len(args) != 3:
+            raise IndexError(f"Передано {len(args)} аргументов, а ожидается 3")
+        sides = []
+        for side in args:
+            if not isinstance(side, (int, float)):
+                raise TypeError("Стороны должны быть числами")
+            elif side <= 0:
+                raise ValueError("Стороны должны быть положительными")
+            else:
+                sides.append(side)
+        if not (sides[0] + sides[1] > sides[2] and
+                sides[1] + sides[2] > sides[0] and
+                sides[0] + sides[2] > sides[1]):
+            raise Exception("Не треугольник")
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
