@@ -8,7 +8,22 @@
 
 
 # Здесь пишем код
-
+def segment(point1, point2):
+    """
+    Возвращает сумму координат двух точек
+    :params: point1 - кортеж с координатами точки 1
+             point2 - кортеж с координатами точки 2
+    :return: total_sum - сумма всех координат
+             exception_str - текст исключения задом наперед, если исключение поймано во время выполнения
+    """
+    try:
+        x1, y1 = point1
+        x2, y2 = point2
+        total_sum = x1 + y1 + x2 + y2
+        return total_sum
+    except Exception as e:
+        exception_str = str(e)[::-1]
+        return exception_str
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
