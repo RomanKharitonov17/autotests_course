@@ -10,6 +10,40 @@
 # Segment((-2, -3), (4, -5)).y_axis_intersection() --> False
 
 # Здесь пишем код
+class Segment:
+    """
+    Segment - Класс для представления отрезка.
+    """
+    def __init__(self, start_point, end_point):
+        self.end_point = start_point
+        self.start_point = end_point
+
+    def length(self):
+        """
+        Возвращает длину отрезка, с округлением до 2 знаков после запятой
+        """
+        x = (self.start_point[0] - self.end_point[0])
+        y = (self.start_point[1] - self.end_point[1])
+        segment_length = (x ** 2 + y ** 2) ** (1 / 2)
+        return round(segment_length, 2)
+
+    def x_axis_intersection(self):
+        """
+        Возвращает True, если отрезок пересекает ось абцисс, иначе False
+        """
+        if self.start_point[0] * self.end_point[0] <= 0:
+            return True
+        else:
+            return False
+
+    def y_axis_intersection(self):
+        """
+        Возвращает True, если отрезок пересекает ось ординат, иначе False
+        """
+        if self.start_point[1] * self.end_point[1] <= 0:
+            return True
+        else:
+            return False
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
