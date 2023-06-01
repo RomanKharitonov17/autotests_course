@@ -24,28 +24,31 @@
 # Здесь пишем код
 class PersonInfo:
     """
-        Класс для представления cотрудника.
-        :attributes: full_name - имя и фамилия.
-                     age - возраст.
-                     *division - подразделения от головного до того, где работает сотрудник.
-        :methods: __init__ - устанавливает атрибуты для объекта.
-                  short_name - возвращает строку Фамилия И.
-                  path_deps - возвращает путь "Головное подразделение --> ... --> Конечное подразделение".
-                  new_salary - расчитывает зарплату.
-        """
+        PersonInfo - класс для представления cотрудника.
+    """
     def __init__(self, full_name, age, *division):
         self.full_name = full_name
         self.age = age
         self.division = division
 
     def short_name(self):
+        """
+        Возвращает строку Фамилия И.
+        """
         name = f'{self.full_name.split()[-1]} {self.full_name[0]}.'
         return name
 
     def path_deps(self):
+        """
+        Возвращает путь в формате: Головное подразделение --> ... --> Конечное подразделение
+        """
         return ' --> '.join(self.division)
 
     def new_salary(self):
+        """
+        Вычисляет зараплату по формуле: 1337*Возраст*суммарное кол-во вхождений трех наиболее часто встречающихся букв
+        из списка подразделений (регистр имеет значение "А" и "а" - разные буквы)
+        """
         dep_letters = ''.join(self.division)
         letter_count = {}
         for letter in dep_letters:
