@@ -16,7 +16,29 @@
 
 import unittest  # Не удалять
 
+
 # Здесь пишем код
+def treatment_sum(our_tuple):
+    """
+    Возвращает сумму кортежа с двумя элементами
+    :param: our_tuple - кортеж с произвольным числом элементов
+    :return: tuple_sum - сумма элементов кортежа
+    """
+    if len(our_tuple) == 2:
+        try:
+            tuple_sum = our_tuple[0] + our_tuple[1]
+            return tuple_sum
+        except TypeError:
+            return "Нельзя сложить эти данные"
+    if len(our_tuple) < 2:
+        try:
+            our_tuple[0] + our_tuple[1]
+        except IndexError:
+            return "Недостаточно данных"
+
+    if len(our_tuple) > 2:
+        raise OverflowError("Много данных")
+
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
