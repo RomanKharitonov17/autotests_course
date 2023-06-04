@@ -20,10 +20,12 @@ def segment(point1, point2):
         x1, y1 = point1
         x2, y2 = point2
         total_sum = x1 + y1 + x2 + y2
-        return total_sum
+
     except Exception as e:
         exception_str = str(e)[::-1]
         return exception_str
+    else:
+        return total_sum
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
