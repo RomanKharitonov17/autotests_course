@@ -27,9 +27,9 @@ def treatment_sum(our_tuple):
     if len(our_tuple) == 2:
         try:
             tuple_sum = our_tuple[0] + our_tuple[1]
-            return tuple_sum
         except TypeError:
             return "Нельзя сложить эти данные"
+        return tuple_sum
     if len(our_tuple) < 2:
         try:
             our_tuple[0] + our_tuple[1]
