@@ -4,7 +4,14 @@
 
 
 # Здесь пишем код
+from pathlib import Path
 
+with open(Path("test_file", "task1_data.txt"), 'r', encoding='utf-8') as file:
+    file_content = file.read()
+with open(Path("test_file", "task1_answer.txt"), 'w', encoding='utf-8') as file_text:
+    for symbol in file_content:
+        if not symbol.isdigit():
+            file_text.write(symbol)
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
