@@ -33,4 +33,35 @@
 
 import datetime
 
+
 # Здесь пишем код
+
+def func_log(file_log='log.txt'):
+    """
+    Декоратор. Позволяет логировать вызовы других функций.
+    """
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            with open(file_log, 'a') as f:
+                now = datetime.datetime.now().strftime('%d.%m %H:%M:%S')
+                f.write(f"{func.__name__} вызвана {now}\n")
+            return func(*args, **kwargs)
+
+        return wrapper
+
+    return decorator
+
+
+@func_log()
+def func1():
+    pass
+
+
+@func_log(file_log='func2.txt')
+def func2():
+    pass
+
+
+func1()
+func2()
+func1()
