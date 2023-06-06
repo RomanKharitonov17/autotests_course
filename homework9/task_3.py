@@ -4,5 +4,19 @@
 # Нужно найти сумму трёх самых дорогих покупок, которые запишутся в переменную three_most_expensive_purchases
 
 # Здесь пишем код
+with open("test_file/task_3.txt") as file:
+    total_prices = []
+    purchases = []
+    for line in file:
+        try:
+            price = int(line.strip())
+            purchases.append(price)
+        except ValueError:
+            if purchases:
+                total_prices.append(sum(purchases))
+                purchases = []
+    if purchases:
+        total_prices.append(sum(purchases))
+    three_most_expensive_purchases = sum(sorted(total_prices)[-3:])
 
 assert three_most_expensive_purchases == 202346
