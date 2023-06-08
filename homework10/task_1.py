@@ -16,4 +16,18 @@
 import random
 
 
-# Здесь пишем код
+def generate_random_name():
+    def generate_random_word(word):
+        letters = 'abcdefghijklmnopqrstuvwxyz'
+        for i in range(random.randint(1, 15)):
+            word += (random.choice(letters))
+        return word
+
+    while True:
+        word_1 = generate_random_word('')
+        word_2 = generate_random_word('')
+        yield f"{word_1} {word_2}"
+
+
+gen = generate_random_name()
+print(next(gen))
