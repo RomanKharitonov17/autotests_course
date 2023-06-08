@@ -16,17 +16,17 @@ def all_division(*arg1):
     return division
 
 
-def test_division_by_zero_error():
+def test_error_division_by_zero():
     with pytest.raises(ZeroDivisionError):
         all_division(2, 0)
 
 
-def test_division_no_args_error():
+def test_error_division_no_args():
     with pytest.raises(IndexError):
         all_division()
 
 
-def test_division_letter_error():
+def test_error_division_letter():
     with pytest.raises(TypeError):
         all_division('a', 'b')
 
