@@ -12,5 +12,16 @@ def all_division(*arg1):
     return division
 
 
-
+@pytest.mark.parametrize("args, expected_result", [
+    ((4, 2), 2),
+    ((6, 3), 2),
+    ((), IndexError),
+    pytest.param((10, 0), ZeroDivisionError, marks=pytest.mark.skip(reason="division by zero")),
+    pytest.param(('a', 'b'), TypeError, marks=pytest.mark.smoke)
+])
+def test_all_division(args, expected_result):
+    try:
+        assert all_division(*args) == expected_result
+    except Exception as ex:
+        assert type(ex) == expected_result
 
