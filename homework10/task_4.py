@@ -4,3 +4,15 @@
 
 import pytest
 
+
+def division(a, b):
+    return a / b
+
+
+class Test:
+    def test_division(self, execution_time):
+        assert division(4, 2) == 2.0
+
+    def test_division_by_zero(self):
+        with pytest.raises(ZeroDivisionError):
+            division(4, 0)
