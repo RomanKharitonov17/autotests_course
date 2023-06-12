@@ -10,9 +10,13 @@ def division(a, b):
 
 
 class Test:
-    def test_division(self, execution_time):
+    def test_division(self):
         assert division(4, 2) == 2.0
 
-    def test_division_by_zero(self):
+    def test_division_by_zero(self, execution_time):
         with pytest.raises(ZeroDivisionError):
             division(4, 0)
+
+    def test_division_letter(self, execution_time):
+        with pytest.raises(TypeError):
+            division('a', 'b')
