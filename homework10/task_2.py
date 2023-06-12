@@ -16,24 +16,29 @@ def all_division(*arg1):
     return division
 
 
-def test_error_division_by_zero():
+@pytest.mark.smoke
+def test_division_by_zero():
     with pytest.raises(ZeroDivisionError):
         all_division(2, 0)
 
 
-def test_error_division_no_args():
+@pytest.mark.acceptance
+def test_division_no_args():
     with pytest.raises(IndexError):
         all_division()
 
 
-def test_error_division_letter():
+@pytest.mark.acceptance
+def test_division_letter():
     with pytest.raises(TypeError):
         all_division('a', 'b')
 
+
 @pytest.mark.smoke
-def test_positive():
+def test_division_positive():
     assert all_division(4, 2) == 2
 
 
-def test_positive2():
+@pytest.mark.acceptance
+def test_divison2_positive():
     assert all_division(6, 3, 2) == 1
