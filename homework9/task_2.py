@@ -32,6 +32,7 @@
 
 
 import datetime
+import time
 
 
 # Здесь пишем код
@@ -54,12 +55,18 @@ def func_log(file_log='log.txt'):
 
 @func_log()
 def func1():
-    pass
+    """
+    Функция ожидания, при вызовые ждет 3 секунды. Вызов логируется с помощью func_log
+    """
+    time.sleep(3)
 
 
 @func_log(file_log='func2.txt')
 def func2():
-    pass
+    """
+    Функция ожидания, при вызовые ждет 5 секунды. Вызов логируется с помощью func_log
+    """
+    time.sleep(5)
 
 
 func1()
