@@ -3,7 +3,7 @@ import datetime
 import time
 
 
-@pytest.fixture(scope='class', autouse=True)
+@pytest.fixture(scope='class', autouse=False)
 def start_stop_time():
     print(f'\n Запуск {datetime.datetime.now()}')
     yield
