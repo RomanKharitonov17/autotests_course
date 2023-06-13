@@ -8,7 +8,7 @@ import pytest
 def division(a, b):
     return a / b
 
-
+@pytest.mark.usefixtures("start_stop_time")
 class Test:
     def test_division(self):
         assert division(4, 2) == 2.0
