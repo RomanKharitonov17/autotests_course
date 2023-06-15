@@ -22,13 +22,15 @@ try:
     time.sleep(1)
     browser.get(tensor_url)
     time.sleep(1)
-    block = browser.find_element(By.CSS_SELECTOR, '.tensor_ru-Index__block4-content')
-    assert block.is_displayed()
-    details = block.find_element(By.CSS_SELECTOR, '.tensor_ru-link')
+    block = browser.find_elements(By.CSS_SELECTOR, '.tensor_ru-Index__card')
+    block_4 = block[1]
+    assert block_4.is_displayed()
+    details = block_4.find_element(By.CSS_SELECTOR, '.tensor_ru-link')
     time.sleep(1)
     browser.execute_script("arguments[0].scrollIntoView({behavior: 'auto', block: 'center'});", details)
     time.sleep(3)
     assert details.is_displayed()
+    assert details.text == 'Подробнее'
     details.click()
     time.sleep(1)
     assert browser.current_url == tensor_about
